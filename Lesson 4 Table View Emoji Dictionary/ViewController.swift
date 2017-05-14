@@ -17,7 +17,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     //table view needs to know how many things are there and how many rows 
     
     
-    var emojis = ["😄", "😡", "😇", "😎", "💩"]   //8th
+    var emojis : [Emoji] = []     // [Emoji]  the type is Emoji inside of an array
     
     
     
@@ -31,7 +31,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         //where it goes to see how many things it needs/ how many rows. says look to this viewcontroller (self) for the answers.  2nd
         tableView.dataSource = self
         tableView.delegate = self
-        
+        emojis = makeEmojiArray()
         
         
         
@@ -51,7 +51,9 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         
         let cell = UITableViewCell()     //6th
         //cells have textlabels inside of them
-        cell.textLabel?.text = emojis[indexPath.row]       //10th
+        
+        let emoji = emojis[indexPath.row]
+        cell.textLabel?.text = emoji.stringEmoji    //10th
         return cell    //7th
         
     }
@@ -75,7 +77,7 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {      //14th
         let defViewController = segue.destination as! DefinitionViewController    //16th   this constant contains the connection between this and the definition view controller.  ..?
-        defViewController.emojiefef = sender as! String          // 18th
+        defViewController.emojiefef = sender as! Emoji    //what im sending over is Emoji and not [Emoji] because emoji1 is being sent which is not an array, its just type Emoji.      // 18th
     }
     
     
@@ -88,10 +90,43 @@ class ViewController: UIViewController,UITableViewDataSource, UITableViewDelegat
         // Dispose of any resources that can be recreated.
     }
 
+    
+    func makeEmojiArray() -> [Emoji] {
+        let emoji1 = Emoji()
+        emoji1.stringEmoji = "😄"
+        emoji1.birthYear = 1900
+        emoji1.category = "Smiley"
+        emoji1.definition = "Smiley face with sunglasses"
+        
+        let emoji2 = Emoji()
+        emoji2.stringEmoji = "😡"
+        emoji2.birthYear = 1910
+        emoji2.category = "Angry"
+        emoji2.definition = "Angry Red Face"
+        
+        let emoji3 = Emoji()
+        emoji3.stringEmoji = "😇"
+        emoji3.birthYear = 1920
+        emoji3.category = "Holy"
+        emoji3.definition = "Holy Face"
+        
+        let emoji4 = Emoji()
+        emoji4.stringEmoji = "😎"
+        emoji4.birthYear = 1930
+        emoji4.category = "Cool"
+        emoji4.definition = "Coolio"
+        
+        let emoji5 = Emoji()
+        emoji5.stringEmoji = "💩"
+        emoji5.birthYear = 1940
+        emoji5.category = "Poo"
+        emoji5.definition = "Poop Man"
+        
+        return [emoji1, emoji2, emoji3, emoji4, emoji5]
 
 }
 
-
+}
 
 
 

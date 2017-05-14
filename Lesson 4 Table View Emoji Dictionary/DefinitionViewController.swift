@@ -13,11 +13,15 @@ class DefinitionViewController: UIViewController {
     
     @IBOutlet weak var emojiPic: UILabel!    //19th
     
-    var emojiefef = "No Emoji"    //17th
+    var emojiefef = Emoji()    //17th
     
     
     @IBOutlet weak var meaning: UILabel!    //20th
     
+    @IBOutlet weak var categoryLabel: UILabel!
+    
+    
+    @IBOutlet weak var birthyearLabel: UILabel!
     
 
     override func viewDidLoad() {
@@ -25,21 +29,11 @@ class DefinitionViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        emojiPic.text = emojiefef
-        
-        
-        if emojiefef == "😄" {       //21st
-            meaning.text = "S"
-        } else if emojiefef == "😡" {
-        meaning.text = "C"
-        }  else if emojiefef == "😇" {
-            meaning.text = "H"
-        }  else if emojiefef == "😎" {
-            meaning.text = "R"
-            
-        } else if emojiefef == "💩" {
-            meaning.text = "U"
-        }
+        emojiPic.text = emojiefef.stringEmoji
+        categoryLabel.text = emojiefef.category
+        birthyearLabel.text = "\(emojiefef.birthYear)"
+        meaning.text = emojiefef.definition
+   
         
     }
 
