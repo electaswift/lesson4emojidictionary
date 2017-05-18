@@ -34,7 +34,9 @@
                             <constraint firstAttribute="trailing" secondItem="OUL-Ib-sjC" secondAttribute="trailing" id="eNt-bT-rDt"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="FJb-bR-kRS"/>
+                    <navigationItem key="navigationItem" id="FJb-bR-kRS">
+                        <barButtonItem key="backBarButtonItem" title="Fuck" id="AOc-aR-Rv3"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="OUL-Ib-sjC" id="Ecv-ZN-pOQ"/>
                         <segue destination="d94-kC-KpB" kind="show" identifier="moveSegue" id="Tjx-Es-7Ss"/>
